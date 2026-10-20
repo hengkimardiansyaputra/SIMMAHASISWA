@@ -1,0 +1,23 @@
+# ============================================================
+#  .htaccess - Konfigurasi Apache untuk InfinityFree
+# ============================================================
+
+Options -Indexes
+ServerSignature Off
+
+# Lindungi folder config dari akses langsung
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+<Files "config/db.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Redirect ke index jika folder diakses
+DirectoryIndex index.php
+
+# Error pages (opsional)
+# ErrorDocument 404 /404.php
